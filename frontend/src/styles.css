@@ -1,0 +1,470 @@
+:root {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: #1a2233;
+  background:
+    radial-gradient(circle at top left, rgba(255, 196, 120, 0.45), transparent 35%),
+    radial-gradient(circle at top right, rgba(108, 180, 255, 0.28), transparent 30%),
+    linear-gradient(180deg, #fff6e8 0%, #f8fbff 55%, #eef5fb 100%);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+code {
+  font-family: "SFMono-Regular", "Consolas", monospace;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.toast-banner {
+  position: sticky;
+  top: 1rem;
+  z-index: 20;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ef6b3b 0%, #ff9b3f 100%);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 16px 32px rgba(239, 107, 59, 0.24);
+}
+
+.app-shell {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.hero-copy,
+.download-form,
+.jobs-panel {
+  border: 1px solid rgba(20, 42, 73, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 20px 50px rgba(35, 48, 70, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.hero-copy {
+  padding: 2rem;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.brand-logo {
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 20px rgba(239, 107, 59, 0.15));
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: #b45b2c;
+  font-weight: 700;
+}
+
+.brand-tagline {
+  margin: 0;
+  color: #7f5539;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: 0.95;
+}
+
+.lede {
+  margin-top: 1rem;
+  max-width: 38rem;
+  color: #44506a;
+  font-size: 1.05rem;
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.hero-points span {
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(239, 107, 59, 0.1);
+  color: #a64f27;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.download-form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.download-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.download-form input,
+.download-form select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(26, 34, 51, 0.12);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) inset;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #1a2233;
+  transition: all 200ms ease;
+  backdrop-filter: blur(8px);
+}
+
+.download-form input::placeholder {
+  color: #8c9aaa;
+  font-weight: 500;
+}
+
+.download-form input:focus,
+.download-form select:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #ef6b3b;
+  box-shadow: 0 0 0 4px rgba(239, 107, 59, 0.15);
+}
+
+.inline-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.download-form button,
+.ghost-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1.2rem;
+  font-weight: 700;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.download-form button {
+  background: linear-gradient(135deg, #ef6b3b 0%, #ff9b3f 100%);
+  color: #fff;
+  box-shadow: 0 16px 30px rgba(239, 107, 59, 0.24);
+}
+
+.ghost-button {
+  background: rgba(40, 73, 121, 0.1);
+  color: #284979;
+}
+
+.download-form button:hover,
+.ghost-button:hover {
+  transform: translateY(-1px);
+}
+
+.download-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.form-error,
+.job-error {
+  margin: 0;
+  color: #b33c2d;
+}
+
+.job-warning {
+  margin: 0.75rem 0 0;
+  color: #9b5b1d;
+}
+
+.jobs-panel {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.clear-btn {
+  font-size: 0.85rem;
+  color: #7f5539;
+  background: rgba(127, 85, 57, 0.08);
+}
+
+.clear-btn:hover {
+  background: rgba(127, 85, 57, 0.15);
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.job-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.job-card {
+  padding: 1.15rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 249, 253, 0.92));
+  border: 1px solid rgba(26, 34, 51, 0.08);
+}
+
+.job-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.job-header h3 {
+  margin: 0.5rem 0 0;
+  font-size: 1.05rem;
+  word-break: break-word;
+}
+
+.job-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.job-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  opacity: 0.5;
+  transition: opacity 200ms ease, transform 200ms ease;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.job-date,
+.job-message,
+.job-meta {
+  color: #5b667e;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.24rem 0.65rem;
+  font-size: 0.78rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.status-queued {
+  color: #7a5d00;
+  background: rgba(244, 207, 81, 0.22);
+}
+
+.status-downloading,
+.status-processing {
+  color: #0f5ea8;
+  background: rgba(91, 173, 255, 0.2);
+}
+
+.status-completed {
+  color: #14704d;
+  background: rgba(105, 220, 167, 0.2);
+}
+
+.status-failed {
+  color: #a0372d;
+  background: rgba(239, 117, 95, 0.18);
+}
+
+.status-cancelled {
+  color: #7f5539;
+  background: rgba(186, 137, 98, 0.18);
+}
+
+.progress-track {
+  margin-top: 0.9rem;
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(40, 73, 121, 0.1);
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff9648 0%, #ef6b3b 40%, #2b87ff 100%);
+  transition: width 220ms ease;
+}
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+  font-size: 0.95rem;
+}
+
+.job-files {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.job-file-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(31, 48, 75, 0.06);
+}
+
+.job-file-name {
+  font-family: "SFMono-Regular", "Consolas", monospace;
+  font-size: 0.85rem;
+  color: #1a2233;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+
+.file-download-btn {
+  flex-shrink: 0;
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ef6b3b 0%, #ff9b3f 100%);
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(239, 107, 59, 0.22);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  cursor: pointer;
+}
+
+.file-download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(239, 107, 59, 0.32);
+}
+
+.empty-state {
+  padding: 2rem;
+  border-radius: 18px;
+  background: rgba(31, 48, 75, 0.04);
+  text-align: center;
+  color: #5b667e;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-lockup,
+  .panel-heading,
+  .job-header {
+    flex-direction: column;
+  }
+
+  .brand-lockup {
+    align-items: flex-start;
+  }
+
+  .inline-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
