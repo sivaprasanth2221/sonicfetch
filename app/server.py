@@ -19,7 +19,7 @@ class DownloadRequestBody(BaseModel):
     audioQuality: str = "192"
 
 
-app = FastAPI(title=settings.app_name, version="1.0.0")
+app = FastAPI(title=settings.app_name, version="1.1.0")
 
 app.add_middleware(
     CORSMiddleware,
