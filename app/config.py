@@ -27,6 +27,12 @@ class Settings:
             os.getenv("FRONTEND_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")
         )
     )
+    extension_origin_regex: str = field(
+        default_factory=lambda: os.getenv(
+            "EXTENSION_ORIGIN_REGEX",
+            r"^(chrome-extension|moz-extension)://.*$",
+        )
+    )
     max_workers: int = field(default_factory=lambda: int(os.getenv("MAX_DOWNLOAD_WORKERS", "2")))
 
 

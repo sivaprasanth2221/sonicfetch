@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SonicFetch Extension Settings</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="options-page">
+    <main class="popup-shell options-shell">
+      <header class="popup-header options-header">
+        <img class="brand-icon" src="assets/icon-128.png" alt="SonicFetch" />
+        <div>
+          <p class="eyebrow">SonicFetch</p>
+          <h1>Extension settings</h1>
+          <p class="page-copy">
+            Configure how the browser companion connects to your local SonicFetch backend and dashboard.
+          </p>
+        </div>
+      </header>
+
+      <form id="settings-form" class="panel options-panel">
+        <label class="field">
+          <span>SonicFetch backend URL</span>
+          <input
+            id="backendUrl"
+            name="backendUrl"
+            type="url"
+            placeholder="http://127.0.0.1:8000"
+            required
+          />
+        </label>
+
+        <label class="field">
+          <span>SonicFetch dashboard URL</span>
+          <input
+            id="dashboardUrl"
+            name="dashboardUrl"
+            type="url"
+            placeholder="http://localhost:5173"
+            required
+          />
+        </label>
+
+        <div class="row">
+          <label class="field">
+            <span>Default format</span>
+            <select id="audioFormat" name="audioFormat">
+              <option value="mp3">MP3</option>
+              <option value="m4a">M4A</option>
+              <option value="wav">WAV</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Default quality</span>
+            <select id="audioQuality" name="audioQuality">
+              <option value="128">128 kbps</option>
+              <option value="192">192 kbps</option>
+              <option value="256">256 kbps</option>
+              <option value="320">320 kbps</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="checkbox-row checkbox-panel">
+          <input id="openDashboard" name="openDashboard" type="checkbox" />
+          <span>Open SonicFetch after sending a link</span>
+        </label>
+
+        <div class="actions options-actions">
+          <button type="submit" class="primary-button">Save settings</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

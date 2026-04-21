@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SonicFetch</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="popup-header">
+        <img class="brand-icon" src="assets/icon-128.png" alt="SonicFetch" />
+        <div>
+          <p class="eyebrow">SonicFetch</p>
+          <h1>Send to SonicFetch</h1>
+        </div>
+      </header>
+
+      <form id="send-form" class="panel">
+        <label class="field">
+          <span>YouTube URL</span>
+          <textarea
+            id="url"
+            name="url"
+            rows="3"
+            placeholder="Paste a YouTube video or playlist URL"
+            required
+          ></textarea>
+        </label>
+
+        <div class="row">
+          <label class="field">
+            <span>Format</span>
+            <select id="audioFormat" name="audioFormat">
+              <option value="mp3">MP3</option>
+              <option value="m4a">M4A</option>
+              <option value="wav">WAV</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Quality</span>
+            <select id="audioQuality" name="audioQuality">
+              <option value="128">128 kbps</option>
+              <option value="192">192 kbps</option>
+              <option value="256">256 kbps</option>
+              <option value="320">320 kbps</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="use-current-tab" class="ghost-button">Use current tab</button>
+          <button type="submit" id="send-button" class="primary-button">Send to SonicFetch</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </form>
+
+      <section class="panel settings-panel">
+        <div class="settings-header">
+          <div>
+            <p class="eyebrow">Quick settings</p>
+            <h2>Edit extension settings</h2>
+          </div>
+          <button type="button" id="toggle-settings" class="ghost-button settings-toggle">
+            Show
+          </button>
+        </div>
+
+        <form id="popup-settings-form" class="settings-form hidden">
+          <label class="field">
+            <span>SonicFetch backend URL</span>
+            <input
+              id="backendUrl"
+              name="backendUrl"
+              type="url"
+              placeholder="http://127.0.0.1:8000"
+              required
+            />
+          </label>
+
+          <label class="field">
+            <span>SonicFetch dashboard URL</span>
+            <input
+              id="dashboardUrl"
+              name="dashboardUrl"
+              type="url"
+              placeholder="http://localhost:5173"
+              required
+            />
+          </label>
+
+          <label class="checkbox-row">
+            <input id="openDashboard" name="openDashboard" type="checkbox" />
+            <span>Open SonicFetch after sending a link</span>
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="primary-button">Save settings</button>
+          </div>
+
+          <p id="settings-status" class="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <footer class="popup-footer">
+        <button type="button" id="open-dashboard" class="link-button">Open SonicFetch</button>
+        <button type="button" id="open-options" class="link-button">Extension settings</button>
+      </footer>
+    </main>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

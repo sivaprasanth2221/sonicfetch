@@ -9,6 +9,7 @@ SonicFetch is a cross-platform YouTube-to-audio downloader with a FastAPI backen
 - Cancel running jobs safely without crashing background workers
 - Skip unavailable playlist items while keeping the rest of the batch moving
 - Clear finished jobs in bulk and free disk space automatically
+- Browser extension for sending YouTube links directly into SonicFetch
 - Run locally on Windows, macOS, and Linux, or package with Docker
 
 ## Tech Stack
@@ -28,6 +29,11 @@ SonicFetch is a cross-platform YouTube-to-audio downloader with a FastAPI backen
 |   |-- downloader.py
 |   |-- models.py
 |   `-- server.py
+|-- browser-extension/
+|   |-- manifest.json
+|   |-- background.js
+|   |-- popup.html
+|   `-- README.md
 |-- frontend/
 |   |-- public/
 |   |-- src/
@@ -144,6 +150,7 @@ Copy `.env.example` to `.env` if you want local overrides.
 | `APP_PORT` | `8000` | Backend bind port |
 | `DOWNLOAD_DIR` | `downloads` | Output directory |
 | `FRONTEND_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Allowed browser origins |
+| `EXTENSION_ORIGIN_REGEX` | `^(chrome-extension|moz-extension)://.*$` | Allowed browser-extension origins |
 | `MAX_DOWNLOAD_WORKERS` | `2` | Background download concurrency |
 
 ## Docker
@@ -183,6 +190,33 @@ Example request:
   "audioQuality": "192"
 }
 ```
+
+## Browser Extension
+
+SonicFetch now includes a first-party browser extension in [browser-extension/](./browser-extension/) for sending YouTube links directly into the local app.
+
+Features:
+
+- Send the current YouTube tab to SonicFetch from the extension popup
+- Right-click a YouTube page or link and send it through a context-menu action
+- Store default format, quality, backend API URL, and dashboard URL preferences in browser storage
+
+Load it locally:
+
+### Chrome / Edge / Brave
+
+1. Open `chrome://extensions/`
+2. Enable `Developer mode`
+3. Click `Load unpacked`
+4. Select the `browser-extension/` folder
+
+### Firefox
+
+1. Open `about:debugging#/runtime/this-firefox`
+2. Click `Load Temporary Add-on`
+3. Choose `browser-extension/manifest.json`
+
+The extension-specific usage notes are documented in [browser-extension/README.md](./browser-extension/README.md).
 
 ## Testing
 
